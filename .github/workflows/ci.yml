@@ -27,7 +27,7 @@ jobs:
         run: mvn clean verify
 
       - name: Archive backend coverage report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.6.2
         with:
          name: backend-coverage
          path: back/target/site/jacoco
@@ -54,7 +54,7 @@ jobs:
         run: npm run test -- --watch=false --no-progress --browsers=ChromeHeadless --code-coverage
 
       - name: Archive frontend coverage report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: frontend-coverage
           path: front/coverage
