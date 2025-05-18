@@ -23,13 +23,8 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Build and test with Maven
-        run: mvn clean verify
-
-      - name: SonarCloud Scan (backend)
-        uses: SonarSource/sonarqube-scan-action@v5.2.0
-        with:
-          projectBaseDir: back
+      - name: Run tests and SonarCloud analysis
+        run: mvn verify sonar:sonar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
@@ -37,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v4.6.2
         with:
          name: backend-coverage
-         path: back/target/site/jacoco
+         path: target/site/jacoco
 
   frontend:
     name: Frontend tests
