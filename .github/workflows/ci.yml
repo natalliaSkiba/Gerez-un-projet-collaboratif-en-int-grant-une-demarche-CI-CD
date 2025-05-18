@@ -23,6 +23,13 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
+      - name: SonarCloud Scan (backend)
+        uses: SonarSource/sonarqube-scan-action@v5.2.0
+        with:
+          projectBaseDir: back
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
       - name: Build and test with Maven
         run: mvn clean verify
 
@@ -49,6 +56,13 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: SonarCloud Scan (frontend)
+        uses: SonarSource/sonarqube-scan-action@v5.2.0
+        with:
+          projectBaseDir: front
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Run frontend tests
         run: npm run test -- --watch=false --no-progress --browsers=ChromeHeadless --code-coverage
