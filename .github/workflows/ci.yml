@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v4.6.2
         with:
          name: backend-coverage
-         path: target/site/jacoco
+         path: back/target/site/jacoco
 
   frontend:
     name: Frontend tests
