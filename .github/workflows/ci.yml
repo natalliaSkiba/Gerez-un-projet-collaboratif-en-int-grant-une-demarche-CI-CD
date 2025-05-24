@@ -24,7 +24,13 @@ jobs:
           distribution: 'temurin'
 
       - name: Run tests and SonarCloud analysis
-        run: mvn verify sonar:sonar
+        run: mvn -B verify sonar:sonar
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: SonarCloud Quality Gate
+        uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
+        timeout-minutes: 5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
@@ -50,14 +56,7 @@ jobs:
           node-version: '16'
 
       - name: Install dependencies
-        run: npm install
-
-      - name: SonarCloud Scan (frontend)
-        uses: SonarSource/sonarqube-scan-action@v5.2.0
-        with:
-          projectBaseDir: front
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: npm ci
 
       - name: Run frontend tests
         run: npm run test -- --watch=false --no-progress --browsers=ChromeHeadless --code-coverage
@@ -67,6 +66,15 @@ jobs:
         with:
           name: frontend-coverage
           path: front/coverage
+
+      - name: SonarCloud Scan (frontend)
+        uses: SonarSource/sonarqube-scan-action@v5.2.0
+        with:
+          projectBaseDir: front
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+
   publish-back:
     name: Publish backend to Docker Hub
     needs: backend
