@@ -25,7 +25,7 @@ jobs:
 
       - name: Run tests and SonarCloud analysis
         run: |
-          mvn -B verify sonar:sonar \
+          mvn -X -B verify sonar:sonar \
             -Dsonar.projectKey=natalliaSkiba_7688581-Expert-Git-GitHub \
             -Dsonar.organization=natalliaskiba \
             -Dsonar.host.url=https://sonarcloud.io \
