@@ -92,7 +92,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: Dockerfile
+          file: ./back/Dockerfile
           push: true
           tags: nataskiba/bobapp-back:latest
 
