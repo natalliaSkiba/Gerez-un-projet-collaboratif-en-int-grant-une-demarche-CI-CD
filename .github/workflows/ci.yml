@@ -91,7 +91,7 @@ jobs:
       - name: Build and push Docker image (backend)
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./back
           file: ./back/Dockerfile
           push: true
           tags: nataskiba/bobapp-back:latest
