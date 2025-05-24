@@ -29,14 +29,14 @@ jobs:
             -Dsonar.projectKey=natalliaSkiba_7688581-Expert-Git-GitHub \
             -Dsonar.organization=natalliaskiba \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=$SONAR_TOKEN
+            -Dsonar.token=$SONAR_TOKEN
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: SonarCloud Quality Gate
         uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
         with:
-          projectBaseDir: back
+          scanMetadataReportFile: back/target/sonar/report-task.txt
         timeout-minutes: 5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
