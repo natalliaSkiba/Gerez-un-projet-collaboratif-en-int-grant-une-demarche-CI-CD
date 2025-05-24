@@ -16,7 +16,7 @@ RUN mvn -B -f pom.xml clean package -DskipTests
 #Указывает, что для запуска будет использоваться легкий образ JDK 17 от Eclipse Temurin.
 # Где найти:
 #Docker Hub: eclipse-temurin — ищи тег 17, например eclipse-temurin:17-jdk-jammy.
-FROM eclipse-temurin-17-jdk-jammy
+FROM eclipse-temurin:17-jdk-jammy
 
 #Копирует собранный .jar файл из предыдущего (build) слоя во второй образ (где только JDK), и называет его app.jar.
 COPY --from=build /workspace/target/*.jar app.jar
