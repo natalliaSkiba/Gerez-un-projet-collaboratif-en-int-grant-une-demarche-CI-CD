@@ -29,7 +29,7 @@ jobs:
             -Dsonar.projectKey=natalliaSkiba_7688581-Expert-Git-GitHub \
             -Dsonar.organization=natalliaskiba \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.token=$SONAR_TOKEN
+            -Dsonar.login=$SONAR_TOKEN
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
