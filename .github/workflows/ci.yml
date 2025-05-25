@@ -26,7 +26,7 @@ jobs:
       - name: Run tests and SonarCloud analysis
         run: |
           mvn -X -B verify sonar:sonar \
-            -Dsonar.projectKey=natalliaSkiba_7688581-Expert-Git-GitHub \
+            -Dsonar.projectKey=natalliaSkiba_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD \
             -Dsonar.organization=natalliaskiba \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.token=$SONAR_TOKEN
@@ -46,8 +46,8 @@ jobs:
       - name: Archive backend coverage report
         uses: actions/upload-artifact@v4.6.2
         with:
-         name: backend-coverage
-         path: back/target/site/jacoco
+          name: backend-coverage
+          path: back/target/site/jacoco
 
   frontend:
     name: Frontend tests
