@@ -36,7 +36,7 @@ jobs:
       - name: SonarCloud Quality Gate
         uses: sonarsource/sonarqube-quality-gate-action@master
         with:
-        #  scanMetadataReportFile: back/target/sonar/report-task.txt
+          scanMetadataReportFile: back/target/sonar/report-task.txt
           pollingTimeoutSec: 600
         timeout-minutes: 5
         env:
