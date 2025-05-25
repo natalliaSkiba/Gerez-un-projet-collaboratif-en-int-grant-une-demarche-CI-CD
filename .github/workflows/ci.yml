@@ -141,3 +141,4 @@ jobs:
           file: ./front/Dockerfile
           push: true
           tags: nataskiba/bobapp-front:latest
+
