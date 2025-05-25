@@ -34,7 +34,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: SonarCloud Quality Gate
-        uses: Ssonarsource/sonarqube-quality-gate-action@master
+        uses: Sonarsource/sonarqube-quality-gate-action@master
         with:
           scanMetadataReportFile: back/target/sonar/report-task.txt
         timeout-minutes: 5
