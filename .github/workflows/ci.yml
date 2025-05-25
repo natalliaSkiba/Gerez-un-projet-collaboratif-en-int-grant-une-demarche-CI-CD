@@ -83,6 +83,15 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
+      - name: SonarCloud Quality Gate (frontend)
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        with:
+          scanMetadataReportFile: front/.scannerwork/report-task.txt
+          pollingTimeoutSec: 600
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarcloud.io
+
 
   publish-back:
     name: Publish backend to Docker Hub
