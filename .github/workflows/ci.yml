@@ -84,7 +84,7 @@ jobs:
             -Dsonar.projectKey=natalliaskiba_natalliaskiba-bobapp-front
             -Dsonar.organization=natalliaskiba
             -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.sources=src
+            -Dsonar.sources=src/app,src/app/services
             -Dsonar.exclusions=**/*.spec.ts,**/*.yml
             -Dsonar.javascript.lcov.reportPaths=coverage/bobapp/lcov.info
         env:
