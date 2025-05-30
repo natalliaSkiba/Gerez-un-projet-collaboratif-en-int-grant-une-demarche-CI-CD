@@ -68,7 +68,7 @@ jobs:
         run: npm ci
 
       - name: Run frontend tests
-        run: npm run test -- --watch=false --no-progress --browsers=ChromeHeadless --code-coverage
+        run: npm run test --code-coverage
 
       - name: Archive frontend coverage report
         uses: actions/upload-artifact@v4.6.2
@@ -84,8 +84,8 @@ jobs:
             -Dsonar.projectKey=natalliaskiba_natalliaskiba-bobapp-front
             -Dsonar.organization=natalliaskiba
             -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.sources=src/app
-            -Dsonar.exclusions=**/*.json,**/*.yml,**/test.ts,**/environments/**
+            -Dsonar.sources=src
+            -Dsonar.exclusions=**/*.json,**/*.yml
             -Dsonar.javascript.lcov.reportPaths=coverage/bobapp/lcov.info
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
