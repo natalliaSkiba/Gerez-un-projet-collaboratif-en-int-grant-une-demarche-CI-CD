@@ -53,7 +53,6 @@ jobs:
         with:
           scanMetadataReportFile: back/target/sonar/report-task.txt
           pollingTimeoutSec: 600
-        timeout-minutes: 5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: https://sonarcloud.io
@@ -82,7 +81,6 @@ jobs:
           key: node-${{ runner.os }}-${{ hashFiles('front/package-lock.json') }}
           restore-keys: |
             node-${{ runner.os }}-
-
 
       - name: Set up Node
         uses: actions/setup-node@v3
