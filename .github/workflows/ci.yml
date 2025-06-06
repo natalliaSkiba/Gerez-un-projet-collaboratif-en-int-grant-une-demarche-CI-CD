@@ -107,7 +107,7 @@ jobs:
             -Dsonar.organization=natalliaskiba
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.sources=src
-            -Dsonar.exclusions=**/*.spec.ts,**/*.yml,**/*.yaml,**/*.json,**/angular.json,**/*.conf.js,**/*.config.js,**/*.properties,**/*.xml,**/main.ts,**/test.ts,**/environment*.ts
+            -Dsonar.exclusions=**/*.spec.ts,**/*.yml,**/*.yaml,**/*.json,**/angular.json,**/*.conf.js,**/*.config.js,**/*.properties,**/*.xml
             -Dsonar.javascript.lcov.reportPaths=coverage/bobapp/lcov.info
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
