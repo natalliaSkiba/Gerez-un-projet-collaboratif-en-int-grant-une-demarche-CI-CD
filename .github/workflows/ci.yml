@@ -179,3 +179,4 @@ jobs:
           push: true
           tags: nataskiba/bobapp-front:latest
 
+
